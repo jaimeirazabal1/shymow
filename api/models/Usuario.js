@@ -21,7 +21,12 @@ module.exports = {
 
     fecha_nacimiento : { type: 'datetime' },
 
-    genero : { type: 'string' }
+    genero : { type: 'string', enum: ['M', 'H', 'N'] }
+  },
+  beforeCreate: function (values, cb) {
+  	console.log("Fecha de Nacimiento: ",values.fecha_nacimiento);
+//    values.fecha_nacimiento = new Date(values.fecha_nacimiento);
+    cb();
   }
 };
 

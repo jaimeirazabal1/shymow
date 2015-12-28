@@ -19,7 +19,15 @@ module.exports = {
     });*/
   },
   create: function (req, res){
+    var params = req.allParams();
     console.log(req.allParams());
+    if (params.create) {
+      Usuario.create(params).exec(function(err){
+        console.log("Error:",err)
+      });
+    }else{
+      
+    }
     return res.view("user/create");
   },
 

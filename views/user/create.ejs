@@ -1,7 +1,8 @@
 <div class="panel panel-default">
 	<div class="panel-body">
 		<h1>Nuevo Usuario</h1>
-		<%if (typeof err.invalidAttributes != "undefined") { %>
+		<%if (typeof err != "undefined") { %>
+			<%if(typeof err.invalidAttributes != "undefined"){%>
 			<div class="alert alert-danger">
 				<ul>
 					<% for (val in err.invalidAttributes){%>
@@ -9,6 +10,7 @@
 					<% }%>
 				</ul>
 			</div>
+			<% }%>
 		<% } %>
 		<form class="form-horizontal" method="post">
 			<div class="form-group">

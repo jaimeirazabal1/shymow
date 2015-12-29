@@ -24,11 +24,18 @@ module.exports = {
 		genero : { type: 'string', enum: ['M', 'H', 'N'], required:true}
 	},
 	beforeValidate: function (values, cb) {
+		var bcrypt = require('bcrypt-nodejs');
+
 		var strDate = values.fecha_nacimiento;
 		var dateParts = strDate.split("/");
 
 		var date = new Date(dateParts[2], (dateParts[1] - 1), dateParts[0]);
+		var hash = bcrypt.hashSync(values.password);
 
+		/*clave encriptada*/
+		values.password = hash;
+ 		//para comparar los hash
+		//bcrypt.compareSync("bacon", hash); // true
 		values.fecha_nacimiento = date;
 //  	console.log("Fecha de Nacimiento: ",date);
 //    values.fecha_nacimiento = new Date(values.fecha_nacimiento);

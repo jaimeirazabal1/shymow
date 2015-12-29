@@ -11,6 +11,17 @@
 			<th>Fecha de nacimiento</th>
 			<th>Género</th>
 		</thead>
+		<% for (var i=0; i<registros.length; i++){ %>
+			<tr>
+				<td><%= registros[i].email %></td>
+				<td><%= registros[i].nombre %></td>
+				<td><%= registros[i].apellidos %></td>
+				<td><%= registros[i].edad %></td>
+				<td><%= registros[i].fecha_nacimiento %></td>
+				<td><%= generos[registros[i].genero] %></td>
+
+			</tr>
+		<% } %>
 	</table>
   </div>
 </div>

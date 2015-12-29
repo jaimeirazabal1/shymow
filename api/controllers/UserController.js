@@ -13,7 +13,15 @@ module.exports = {
    * `UserController.index()`
    */
   index: function (req, res) {
-    return res.view("user/index",{todo:"hola mundo"})
+
+    Usuario.find({}).exec(function findCB(err, found){
+      console.log(found)
+      if (found.length)
+        return res.view("user/index",{registros:found,generos:{'H':'Hombre','F':'Femenino','N':'Nulo'}})
+      else
+        return res.view("user/index",{registros:""})
+    });
+    
     /*return res.json({
       todo: 'index() is not implemented yet!'
     });*/

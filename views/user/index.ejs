@@ -4,6 +4,7 @@
 	<a href="/user/create">Nuevo Usuario</a>
 	<table class="table">
 		<thead>
+			<th>Pic</th>
 			<th>E-mail</th>
 			<th>Nombre</th>
 			<th>Apellidos</th>
@@ -13,13 +14,13 @@
 		</thead>
 		<% for (var i=0; i<registros.length; i++){ %>
 			<tr>
+				<td><img src="/images/shymow.jpg" alt="No Pic" width="50" height="30"></td>
 				<td><%= registros[i].email %></td>
 				<td><%= registros[i].nombre %></td>
 				<td><%= registros[i].apellidos %></td>
 				<td><%= registros[i].edad %></td>
 				<td><%= registros[i].fecha_nacimiento %></td>
 				<td><%= generos[registros[i].genero] %></td>
-
 			</tr>
 		<% } %>
 	</table>

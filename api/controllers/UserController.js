@@ -32,9 +32,14 @@ module.exports = {
     console.log(req.allParams());
     if (params.create) {
       Usuario.create(params).exec(function(err, created){
-        if (typeof err != "undefined") {
+        if (created) {
+
+          return res.view("user/create",{mgs:'Usuario Registrado con exito'});
+        }else{
+          
           return res.view("user/create",{err:err});
         }
+        
       });
     }else{
       

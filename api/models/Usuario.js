@@ -7,26 +7,32 @@
 
 module.exports = {
 
-  attributes: {
+	attributes: {
 
-    nombre : { type: 'string' },
+		nombre : { type: 'string', required:true },
 
-    apellidos : { type: 'string' },
+		apellidos : { type: 'string', required:true },
 
-    email : { type: 'string' },
+		email : { type: 'string', unique:true },
 
-    password : { type: 'string' },
+		password : { type: 'string', required:true },
 
-    edad : { type: 'integer' },
+		edad : { type: 'integer', required:true },
 
-    fecha_nacimiento : { type: 'datetime' },
+		fecha_nacimiento : { type: 'date', required:true },
 
-    genero : { type: 'string', enum: ['M', 'H', 'N'] }
-  },
-  beforeCreate: function (values, cb) {
-  	console.log("Fecha de Nacimiento: ",values.fecha_nacimiento);
+		genero : { type: 'string', enum: ['M', 'H', 'N'], required:true}
+	},
+	beforeValidate: function (values, cb) {
+		var strDate = values.fecha_nacimiento;
+		var dateParts = strDate.split("/");
+
+		var date = new Date(dateParts[2], (dateParts[1] - 1), dateParts[0]);
+
+		values.fecha_nacimiento = date;
+//  	console.log("Fecha de Nacimiento: ",date);
 //    values.fecha_nacimiento = new Date(values.fecha_nacimiento);
-    cb();
-  }
+cb();
+}
 };
 

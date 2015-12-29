@@ -1,6 +1,15 @@
 <div class="panel panel-default">
 	<div class="panel-body">
 		<h1>Nuevo Usuario</h1>
+		<%if (typeof err.invalidAttributes != "undefined") { %>
+			<div class="alert alert-danger">
+				<ul>
+					<% for (val in err.invalidAttributes){%>
+						<li><%= val+" "+err.invalidAttributes[val][0]['message'] %></li>
+					<% }%>
+				</ul>
+			</div>
+		<% } %>
 		<form class="form-horizontal" method="post">
 			<div class="form-group">
 				<label for="inputEmail3" class="col-sm-2 control-label">Email</label>

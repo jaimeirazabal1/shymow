@@ -19,16 +19,19 @@ module.exports = {
     });*/
   },
   create: function (req, res){
+    var error = '';
     var params = req.allParams();
     console.log(req.allParams());
     if (params.create) {
-      Usuario.create(params).exec(function(err){
-        console.log("Error:",err)
+      Usuario.create(params).exec(function(err, created){
+        if (typeof err != "undefined") {
+          return res.view("user/create",{err:err});
+        }
       });
     }else{
       
+      return res.view("user/create",{mensaje:'HOla que tal',err:error});
     }
-    return res.view("user/create");
   },
 
   /**

@@ -23,6 +23,15 @@ module.exports = {
 
 		genero : { type: 'string', enum: ['M', 'H', 'N'], required:true}
 	},
+	validate : function(p,user_id){
+		var bcrypt = require('bcrypt-nodejs');
+		Usuario.findOne({id:user_id}).exec(function findOneCB(err, found){
+			if (found) {
+				return true;
+			}
+			return false;
+		});
+	},
 	beforeValidate: function (values, cb) {
 		var bcrypt = require('bcrypt-nodejs');
 

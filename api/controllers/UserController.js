@@ -75,5 +75,16 @@ module.exports = {
       todo: 'delete() is not implemented yet!'
     });
   }
+  login: function(req, res){
+         req.session.authenticated = true;
+         
+         // dentro de req.session, que es un objecto, se pueden meter los datos que se quieran como que usuario es req.session.user = user;
+         return res.ok();
+    },
+
+   logout: function(req, res){
+        req.session.destroy();
+        return res.redirect('/');
+   }
 };
 

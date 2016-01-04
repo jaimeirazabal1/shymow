@@ -23,13 +23,34 @@ module.exports = {
 
 		genero : { type: 'string', enum: ['M', 'H', 'N'], required:true}
 	},
-	validate : function(p,user_id){
+	validate : function(p,hash,cb){
 		var bcrypt = require('bcrypt-nodejs');
-		Usuario.findOne({id:user_id}).exec(function findOneCB(err, found){
-			if (found) {
-				return true;
+		cb(bcrypt.compareSync(p, hash));
+	},
+	encriptarPassword : function(password,cb){
+		var bcrypt = require('bcrypt-nodejs');
+		cb(bcrypt.hashSync(values.password));
+	},
+	authenticate:function(email,password,req,cb){
+		var usuario = '';
+		Usuario.findOne({email:email},function(err,result){
+			if (err) {
+				cb(err,result);
+			};
+			if (result != 'undefined') {
+				usuario = result;
+				Usuario.validate(password,result['password'],function(result){
+					if (result) {
+						req.session.authenticated = true;
+						req.session.user = usuario;
+						cb(err,{valido:result,'mensaje':"autenticado correctamente",clase:'success'});
+					}else{
+						cb(err,{valido:result,'mensaje':"error autenticado un dato errado",clase:'danger'});						
+					}
+				})
+			}else{
+				cb(err,{valido:false,'mensaje':"Error: email o contrase;a invalidos",clase:'danger'});	
 			}
-			return false;
 		});
 	},
 	beforeValidate: function (values, cb) {

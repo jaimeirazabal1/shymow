@@ -1,86 +1,102 @@
-<div class="panel panel-default">
-	<div class="panel-body">
-		<h1>Nuevo Usuario</h1>
-		<%if (typeof err != "undefined" && err ) { %>
-			<%if(typeof err.invalidAttributes != "undefined"){%>
-			<div class="alert alert-danger">
-				<ul>
-					<% for (val in err.invalidAttributes){%>
-						<li><%= val+" "+err.invalidAttributes[val][0]['message'] %></li>
-					<% }%>
-				</ul>
+<div class="row">
+  <div class="col-md-4">
+  	
+  </div>
+  <div class="col-md-4">
+  	<br>
+	<div class="panel panel-default">
+		<div class="panel-body">
+			<center>
+				<h1>Nuevo Usuario</h1>
+				<br>
+			</center>
+
+			<%if (typeof err != "undefined" && err ) { %>
+				<%if(typeof err.invalidAttributes != "undefined"){%>
+				<div class="alert alert-danger">
+					<ul>
+						<% for (val in err.invalidAttributes){%>
+							<li><%= val+" "+err.invalidAttributes[val][0]['message'] %></li>
+						<% }%>
+					</ul>
+				</div>
+				<% }%>
+			<% } %>
+			<% if(typeof mgs != 'undefined') {%>
+			<div class="alert alert-success">
+				<%= mgs %>
 			</div>
 			<% }%>
-		<% } %>
-		<% if(typeof mgs != 'undefined') {%>
-		<div class="alert alert-success">
-			<%= mgs %>
-		</div>
-		<% }%>
-		<form class="form-horizontal" method="post">
-			<div class="form-group">
-				<label for="inputEmail3" class="col-sm-2 control-label">Email</label>
-				<div class="col-sm-10">
-					<input type="email" name="email" class="form-control" id="inputEmail3" placeholder="Email">
+			<form class="form-horizontal" method="post">
+				<div class="form-group">
+					<label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+					<div class="col-sm-10">
+						<input type="email" name="email" class="form-control" id="inputEmail3" placeholder="Email">
+					</div>
 				</div>
-			</div>
-			<div class="form-group">
-				<label for="inputPassword3" class="col-sm-2 control-label">Password</label>
-				<div class="col-sm-10">
-					<input type="password" name="password" class="form-control" id="inputPassword3" placeholder="Password">
+				<div class="form-group">
+					<label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+					<div class="col-sm-10">
+						<input type="password" name="password" class="form-control" id="inputPassword3" placeholder="Password">
+					</div>
 				</div>
-			</div>
-			<div class="form-group">
-				<label for="inputNombre3" class="col-sm-2 control-label">Nombre</label>
-				<div class="col-sm-10">
-					<input type="text" name="nombre" class="form-control" id="inputNombre3" placeholder="Nombre">
+				<div class="form-group">
+					<label for="inputNombre3" class="col-sm-2 control-label">Nombre</label>
+					<div class="col-sm-10">
+						<input type="text" name="nombre" class="form-control" id="inputNombre3" placeholder="Nombre">
+					</div>
 				</div>
-			</div>
-			<div class="form-group">
-				<label for="inputApellidos3" class="col-sm-2 control-label">Apellidos</label>
-				<div class="col-sm-10">
-					<input type="text" name="apellidos" class="form-control" id="inputApellidos3" placeholder="Apellidos">
+				<div class="form-group">
+					<label for="inputApellidos3" class="col-sm-2 control-label">Apellidos</label>
+					<div class="col-sm-10">
+						<input type="text" name="apellidos" class="form-control" id="inputApellidos3" placeholder="Apellidos">
+					</div>
 				</div>
-			</div>
-			<div class="form-group">
-				<label for="inputEdad3" class="col-sm-2 control-label">Edad</label>
-				<div class="col-sm-10">
-					<input type="number" name="edad" class="form-control" min="10" id="inputEdad3" placeholder="Edad">
+				<div class="form-group">
+					<label for="inputEdad3" class="col-sm-2 control-label">Edad</label>
+					<div class="col-sm-10">
+						<input type="number" name="edad" class="form-control" min="10" id="inputEdad3" placeholder="Edad">
+					</div>
 				</div>
-			</div>
-			<div class="form-group">
-				<label for="inputFechaNacimiento3" class="col-sm-2 control-label">Fecha de Nacimiento</label>
-				<div class="col-sm-10">
+				<div class="form-group">
+					<label for="inputFechaNacimiento3" class="col-sm-2 control-label">Fecha Nac.</label>
+					<div class="col-sm-10">
 
-					<input data-provide="datepicker" name="fecha_nacimiento" class="form-control datepicker">
-				
+						<input data-provide="datepicker" name="fecha_nacimiento" class="form-control datepicker">
+					
+					</div>
+					<!--<div class="col-sm-10">
+						<input type="date" class="form-control"  id="inputFechaNacimiento3" placeholder="Fecha de Nacimiento">
+					</div>
+					<div class="col-sm-10 input-group date" data-provide="datepicker" style="margin:10px">
+					    <input type="text" class="form-control" placeholder="Fecha de Nacimiento">
+					    <div class="input-group-addon">
+					        <span class="glyphicon glyphicon-th"></span>
+					    </div>
+					</div>-->
 				</div>
-				<!--<div class="col-sm-10">
-					<input type="date" class="form-control"  id="inputFechaNacimiento3" placeholder="Fecha de Nacimiento">
+				<div class="form-group">
+					<label for="inputFechaNacimiento3" class="col-sm-2 control-label">Género</label>
+					<div class="col-sm-10">
+						<select name="genero" class="form-control" id="genero">
+							<option value="M">Mujer</option>
+							<option value="H">Hombre</option>
+							<option value="N">Neutro</option>
+						</select>
+					</div>
 				</div>
-				<div class="col-sm-10 input-group date" data-provide="datepicker" style="margin:10px">
-				    <input type="text" class="form-control" placeholder="Fecha de Nacimiento">
-				    <div class="input-group-addon">
-				        <span class="glyphicon glyphicon-th"></span>
-				    </div>
-				</div>-->
-			</div>
-			<div class="form-group">
-				<label for="inputFechaNacimiento3" class="col-sm-2 control-label">Género</label>
-				<div class="col-sm-10">
-					<select name="genero" class="form-control" id="genero">
-						<option value="M">Mujer</option>
-						<option value="H">Hombre</option>
-						<option value="N">Neutro</option>
-					</select>
+				<input type="hidden" name="create" value="true">
+				<div class="form-group">
+					<div class="col-sm-offset-2 col-sm-10">
+						<button type="submit" class="btn btn-default">Registrarse</button>
+					</div>
 				</div>
-			</div>
-			<input type="hidden" name="create" value="true">
-			<div class="form-group">
-				<div class="col-sm-offset-2 col-sm-10">
-					<button type="submit" class="btn btn-default">Registrarse</button>
-				</div>
-			</div>
-		</form>
+			</form>
+		</div>
 	</div>
+  	
+  </div>
+  <div class="col-md-4">
+  	
+  </div>
 </div>

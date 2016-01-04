@@ -1,0 +1,22 @@
+INSERT INTO `comunidad_automona` (`comunidad`, `id`, `createdAt`, `updatedAt`) VALUES
+('Andalucía', 1, NULL, NULL),
+('Aragón', 2, NULL, NULL),
+('Principado de Asturias', 3, NULL, NULL),
+('Islas Baleares', 4, NULL, NULL),
+('Canarias', 5, NULL, NULL),
+('Cantabria', 6, NULL, NULL),
+('Castilla y León', 7, NULL, NULL),
+('Castilla – La Mancha', 8, NULL, NULL),
+('Cataluña', 9, NULL, NULL),
+('Comunidad Valenciana', 10, NULL, NULL),
+('Extremadura', 11, NULL, NULL),
+('Galicia', 12, NULL, NULL),
+('Comunidad de Madrid', 13, NULL, NULL),
+('Murcia', 14, NULL, NULL),
+('Navarra', 15, NULL, NULL),
+('País Vasco', 16, NULL, NULL),
+('La Rioja', 17, NULL, NULL),
+('Ceuta (Ciudad Autónoma de)', 18, NULL, NULL),
+('Melilla (Ciudad Autónoma de)', 19, NULL, NULL),
+
+sacado de http://www.lonelydrops.com/dp/local/example7.void

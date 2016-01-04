@@ -1,0 +1,17 @@
+Hola,
+
+Esto es en referencia al usuario medio, que no a las empresas, ¿no?
+
+Te respondo:
+
+Opción 1: sí, tipo api. Fíjate en el documento que te pasé que tenemos que introducir una pregunta para saber si es una celebrity o no (edad está dos veces en la presentación, mejor fecha así (01/01/1991). También hay que poner la ciudad (o pueblo o código postal, eso como tú veas para que luego se pueda indexar mejor al buscador) para que puedan ser encontrados, ¡que se nos olvidaba!
+
+Opción 2: En muchas redes sociales la foto de perfil está en la izquierda, no sé si habías pensado ponerlo en la derecha por motivos de diseño y para que aparezca el buscador a la izquierda. 
+
+Opción 3: La descripción es debajo de la foto, sí.
+
+Opción 4: Perfecto, así se verían las fotos.
+
+Opción 5: Exacto, aparecerán igual, pero debajo habrá favoritos y favoritos ocultos. En algún lugar deberá aparecer cuántos favoritos ha recibido mi perfil, tal vez cerca de la foto y la descripción.
+
+Saludos!

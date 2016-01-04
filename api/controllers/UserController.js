@@ -27,23 +27,22 @@
     });*/
 },
 create: function (req, res){
-  var error = '';
   var params = req.allParams();
-  console.log(req.allParams());
-  if (params.create) {
-    Usuario.create(params).exec(function(err, created){
-      if (created) {
-
-        return res.view("user/create",{mgs:'Usuario Registrado con exito'});
+  if (params['create']) {
+    Usuario.create(params,function(err, created){
+      if (err) {
+       
+        return res.view("user/create",{
+          err: err
+        });
       }else{
-
-        return res.view("user/create",{err:err});
+        return res.view("user/create",{
+          mensaje:'El Usuario se Creo con éxito!'
+        });
       }
-
     });
   }else{
-
-    return res.view("user/create",{mensaje:'HOla que tal',err:error});
+    return res.view("user/create");
   }
 },
 
@@ -80,10 +79,10 @@ create: function (req, res){
   */
   login: function(req, res){
     var params = req.allParams();
-    // console.log('Parametros por post:',params);
+     console.log('Parametros por post:',params);
     var user = '';
-    if (typeof params['login'] != 'undefined') {
-      Usuario.authenticate(params['email'],params['password'],req,function(valido,mensaje){
+    if (params['login']) {
+      Sesion.comprobarUsuario(params['email'],params['password'],req,function(valido,mensaje){
         return res.view("user/login",{mensaje:mensaje});
       }) 
     }else{

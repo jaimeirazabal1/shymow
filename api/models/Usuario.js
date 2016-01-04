@@ -21,9 +21,13 @@ module.exports = {
 
 		fecha_nacimiento : { type: 'date', required:true },
 
-		genero : { type: 'string', enum: ['M', 'H', 'N'], required:true}
+		genero : { type: 'string', enum: ['M', 'H', 'N'], required:true},
+
+		celebrity : { type: 'boolean'},
+
+		ciudad : {type:'integer'}
 	},
-	validate : function(p,hash,cb){
+	validar : function(p,hash,cb){
 		var bcrypt = require('bcrypt-nodejs');
 		cb(bcrypt.compareSync(p, hash));
 	},
@@ -31,7 +35,7 @@ module.exports = {
 		var bcrypt = require('bcrypt-nodejs');
 		cb(bcrypt.hashSync(values.password));
 	},
-	authenticate:function(email,password,req,cb){
+	comprobarUsuario:function(email,password,req,cb){
 		var usuario = '';
 		Usuario.findOne({email:email},function(err,result){
 			if (err) {
@@ -39,7 +43,7 @@ module.exports = {
 			};
 			if (result != 'undefined') {
 				usuario = result;
-				Usuario.validate(password,result['password'],function(result){
+				Usuario.validar(password,result['password'],function(result){
 					if (result) {
 						req.session.authenticated = true;
 						req.session.user = usuario;
@@ -54,22 +58,26 @@ module.exports = {
 		});
 	},
 	beforeValidate: function (values, cb) {
+		console.log("maldita sea");
+
 		var bcrypt = require('bcrypt-nodejs');
 
 		var strDate = values.fecha_nacimiento;
+		//console.log("maldita fecha:",values.fecha_nacimiento)
 		var dateParts = strDate.split("/");
 
 		var date = new Date(dateParts[2], (dateParts[1] - 1), dateParts[0]);
+
 		var hash = bcrypt.hashSync(values.password);
 
-		/*clave encriptada*/
+	
 		values.password = hash;
  		//para comparar los hash
 		//bcrypt.compareSync("bacon", hash); // true
 		values.fecha_nacimiento = date;
 //  	console.log("Fecha de Nacimiento: ",date);
-//    values.fecha_nacimiento = new Date(values.fecha_nacimiento);
-cb();
-}
+	//    values.fecha_nacimiento = new Date(values.fecha_nacimiento);
+		cb();
+	}
 };
 

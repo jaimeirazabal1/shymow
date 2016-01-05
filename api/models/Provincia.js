@@ -11,6 +11,9 @@ module.exports = {
   	provincia:{
   		type:'string',
   		unique:true
+  	},
+  	comunidad_automona_id:{
+  		type:'integer'
   	}
   }
 };

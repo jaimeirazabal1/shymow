@@ -1,0 +1,99 @@
+-- phpMyAdmin SQL Dump
+-- version 4.0.10deb1
+-- http://www.phpmyadmin.net
+--
+-- Servidor: localhost
+-- Tiempo de generación: 05-01-2016 a las 10:46:06
+-- Versión del servidor: 5.5.46-0ubuntu0.14.04.2
+-- Versión de PHP: 5.5.9-1ubuntu4.14
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
+--
+-- Base de datos: `shymow`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `provincia`
+--
+
+CREATE TABLE IF NOT EXISTS `provincia` (
+  `provincia` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `comunidad_automona_id` int(11) DEFAULT NULL,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `createdAt` datetime DEFAULT NULL,
+  `updatedAt` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `provincia` (`provincia`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=53 ;
+
+--
+-- Volcado de datos para la tabla `provincia`
+--
+
+INSERT INTO `provincia` (`provincia`, `comunidad_automona_id`, `id`, `createdAt`, `updatedAt`) VALUES
+('Almería', 1, 1, NULL, NULL),
+('Cádiz', 1, 2, NULL, NULL),
+('Córdoba', 1, 3, NULL, NULL),
+('Granada', 1, 4, NULL, NULL),
+('Huelva', 1, 5, NULL, NULL),
+('Jaén', 1, 6, NULL, NULL),
+('Málaga', 1, 7, NULL, NULL),
+('Sevilla', 1, 8, NULL, NULL),
+('Huesca', 2, 9, NULL, NULL),
+('Teruel', 2, 10, NULL, NULL),
+('Zaragoza', 2, 11, NULL, NULL),
+('Asturias', 3, 12, NULL, NULL),
+('Balears (Illes)', 4, 13, NULL, NULL),
+('Palmas (Las)', 5, 14, NULL, NULL),
+('Santa Cruz de Tenerife', 5, 15, NULL, NULL),
+('Cantabria', 6, 16, NULL, NULL),
+('Ávila', 7, 17, NULL, NULL),
+('Burgos', 7, 18, NULL, NULL),
+('León', 7, 19, NULL, NULL),
+('Palencia', 7, 20, NULL, NULL),
+('Salamanca', 7, 21, NULL, NULL),
+('Segovia', 7, 22, NULL, NULL),
+('Soria', 7, 23, NULL, NULL),
+('Valladolid', 7, 24, NULL, NULL),
+('Zamora', 7, 25, NULL, NULL),
+('Albacete', 8, 26, NULL, NULL),
+('Ciudad Real', 8, 27, NULL, NULL),
+('Cuenca', 8, 28, NULL, NULL),
+('Guadalajara', 8, 29, NULL, NULL),
+('Toledo', 8, 30, NULL, NULL),
+('Barcelona', 9, 31, NULL, NULL),
+('Gerona', 9, 32, NULL, NULL),
+('Lleida', 9, 33, NULL, NULL),
+('Tarragona', 9, 34, NULL, NULL),
+('Alicante/Alacant', 10, 35, NULL, NULL),
+('Castellón/Castelló', 10, 36, NULL, NULL),
+('Valencia/València', 10, 37, NULL, NULL),
+('Badajoz', 11, 38, NULL, NULL),
+('Cáceres', 11, 39, NULL, NULL),
+('Coruña (A)', 12, 40, NULL, NULL),
+('Lugo', 12, 41, NULL, NULL),
+('Ourense', 12, 42, NULL, NULL),
+('Pontevedra', 12, 43, NULL, NULL),
+('Madrid', 13, 44, NULL, NULL),
+('Murcia', 14, 45, NULL, NULL),
+('Navarra', 15, 46, NULL, NULL),
+('Álava', 16, 47, NULL, NULL),
+('Guipúzcoa', 16, 48, NULL, NULL),
+('Vizcaya', 16, 49, NULL, NULL),
+('Rioja (La)', 17, 50, NULL, NULL),
+('Ceuta', 18, 51, NULL, NULL),
+('Melilla', 19, 52, NULL, NULL);
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -1,0 +1,10 @@
+<% if(typeof message != 'undefined'){%>
+<p>
+	<%= message %>
+</p>
+<%}%>
+<form action="" enctype="multipart/form-data" method="POST">
+	<input name="avatar" type="file" /><br>
+	<input type="hidden" name="subir" value="1">
+	<input type="submit" value="Subir archivo" /><br>
+</form>

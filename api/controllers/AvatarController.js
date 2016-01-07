@@ -9,7 +9,7 @@ module.exports = {
 	uploadpic:function(req,res){
 		var foto = req.allParams();
 		console.log(req.file);
-		console.log(foto)
+		console.log("foto:",foto)
 		if (foto['subir']) {
 		    req.file('avatar').upload({
 		    	dirname: sails.config.appPath+'/assets/images'
@@ -17,6 +17,7 @@ module.exports = {
 		      if (err)
 		        return res.serverError(err);
 
+		    	console.log("archivos subidos:",files)
 		      return res.redirect('user/bienvenida');
 		    });
 		}

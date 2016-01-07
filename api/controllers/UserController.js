@@ -97,7 +97,7 @@ create: function (req, res){
     return res.redirect('/');
   },
   bienvenida: function(req, res){
-    console.log('usuario autenticado:',req.session.user);
+    //console.log('usuario autenticado:',req.session.user);
     return res.view('user/bienvenida',{'mensaje':'Bienvenido al sistema','usuario_autenticado':req.session.user});
   }
 };

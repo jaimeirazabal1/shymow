@@ -12,8 +12,10 @@ module.exports = {
 		ciudad:{
 			type:"string",
 			unique:true
+		},
+		provincia_id:{
+			type:"integer"
 		}
-	
 	}
   }
 };

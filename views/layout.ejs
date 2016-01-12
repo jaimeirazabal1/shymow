@@ -108,6 +108,7 @@
     <script src="/js/dependencies/bootstrap.js"></script>
     <script src="/js/js/bootstrap-datepicker.js"></script>
     <script src="/js/js/datepicket_lang.js"></script>
+    <script src="/js/js/user_create.js"></script>
     <script src="/js/locales/bootstrap-datepicker.ar.min.js"></script>
     <script src="/js/locales/bootstrap-datepicker.az.min.js"></script>
     <script src="/js/locales/bootstrap-datepicker.bg.min.js"></script>
@@ -174,5 +175,20 @@
     <script src="/js/locales/bootstrap-datepicker.zh-CN.min.js"></script>
     <script src="/js/locales/bootstrap-datepicker.zh-TW.min.js"></script>
     <!--SCRIPTS END-->
+    <script type="text/javascript">
+
+    $(document).ready(function(){
+        $(".check_celebridad").click(function(){
+           
+            if ($(".check_celebridad").val() == "true" ) {
+                $("#texto_celebridad").css("display","block");
+            }
+            if($(".check_celebridad").val() == "false"){
+                $("#texto_celebridad").css("display","none");
+            }
+        })
+    })
+</script>
+
   </body>
 </html>

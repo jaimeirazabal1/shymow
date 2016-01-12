@@ -42,6 +42,7 @@ create: function (req, res){
       }
     });
   }else{
+
     return res.view("user/create");
   }
 },
